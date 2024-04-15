@@ -39,7 +39,7 @@ The dashboard will have three parts with control filters on time and area that d
 To accelerate queries and data processing, the final table "full_data" has been partitioned by date of crimes (column 'time') as this column is one of the filter control in the dashboard also one of the dashboard's sections considers taking the latest date partition only (where the date is equal today) and the table is clustered by geodata (column 'area') which is a filter control in the dashboard too.
 The original column 'time' type is transformed from string to date type in order to be able to partition by time in spark transformation steps.
 
-![Infrasructure Arch](https://github.com/mzfuadi97/crimes-LA-dezoomcamp/assets/70827786/5c5e7d42-31a7-4c1e-87f9-b1b13b3b984d)
+
 
 
 ### Data schema
@@ -81,9 +81,9 @@ The original column 'time' type is transformed from string to date type in order
 ## Data Pipeline 
 
 * **Full pipeline**
-   ![image](https://user-images.githubusercontent.com/98602171/235487296-0b2d9eb4-89ec-405a-81c2-3bfca8c315db.png)
+   ![Infrasructure Arch](https://github.com/mzfuadi97/crimes-LA-dezoomcamp/assets/70827786/5c5e7d42-31a7-4c1e-87f9-b1b13b3b984d)
 
-* **Hourly_DAG**
+* **Daily_DAG**
    ![image](https://user-images.githubusercontent.com/98602171/235377455-f82b774d-c4fe-425a-b813-aa3c6b18f697.png)
 
 * **Historical_DAG**
