@@ -10,13 +10,10 @@ you can access the dataset : [https://catalog.data.gov/dataset/crime-data-from-2
 ### Problem Statement:
 The LAPD's adoption of a new RMS faces several challenges:
 
-Data Transition: Migrating historical crime data to the new system may introduce inaccuracies, affecting dataset reliability.
-
-Technical Issues: The LAPD is experiencing delays in posting crime data due to technical issues, hampering timely updates.
-
-Data Accuracy: Inherent inaccuracies in transcribing paper-based crime reports may compromise data reliability.
-
-Public Trust: Timely resolution of technical issues and ensuring data accuracy are vital for maintaining public trust in the LAPD's transparency and accountability.
+- Data Transition: Migrating historical crime data to the new system may introduce inaccuracies, affecting dataset reliability.
+- Technical Issues: The LAPD is experiencing delays in posting crime data due to technical issues, hampering timely updates.
+- Data Accuracy: Inherent inaccuracies in transcribing paper-based crime reports may compromise data reliability.
+- Public Trust: Timely resolution of technical issues and ensuring data accuracy are vital for maintaining public trust in the LAPD's transparency and accountability.
 
 Addressing these challenges requires resolving technical issues, enhancing data accuracy, and prioritizing transparency to bolster public trust.
 
