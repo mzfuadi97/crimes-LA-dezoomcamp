@@ -5,7 +5,7 @@
 
 The Los Angeles Police Department (LAPD) is transitioning to a new Records Management System (RMS) to comply with the FBI's National Incident-Based Reporting System (NIBRS) mandate. This transition aims to improve reporting efficiency and accuracy. However, challenges such as data inaccuracies and technical issues have arisen, impacting data updates and reliability.\
 
-you can access the dataset : ![dataset](https://catalog.data.gov/dataset/crime-data-from-2020-to-present)
+you can access the dataset : [https://catalog.data.gov/dataset/crime-data-from-2020-to-present]
 
 ### Problem Statement:
 The LAPD's adoption of a new RMS faces several challenges:
