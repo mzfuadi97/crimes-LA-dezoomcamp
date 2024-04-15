@@ -170,11 +170,11 @@ from {BQ_DATASET_PROD}.raw_data
 group by 1,2,3,4;
 """
 
-earthquake_dwh_df = spark.read.format("bigquery").option("query", query).load()
-earthquake_dwh_df.show()
+crimes_dwh_df = spark.read.format("bigquery").option("query", query).load()
+crimes_dwh_df.show()
 
-earthquake_dwh_df.write.format('bigquery') \
-    .option('table', f"{BQ_DATASET_PROD}.earthquake_dwh") \
+crimes_dwh_df.write.format('bigquery') \
+    .option('table', f"{BQ_DATASET_PROD}.crimes_dwh") \
     .option("clusteredFields", "city") \
     .mode('overwrite') \
     .save()

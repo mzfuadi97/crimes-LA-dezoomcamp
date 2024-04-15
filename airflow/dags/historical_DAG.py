@@ -25,7 +25,7 @@ def download_data(**kwargs):
     df = pd.read_csv(url)
     file_name = "historical_data"
     local_file_path = f"/opt/airflow/data/{file_name}.csv"
-                                                 "file_name": file_name})
+                                    
 
 
 def upload_to_bucket(**kwargs):

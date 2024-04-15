@@ -16,7 +16,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "airflow_vm_instance" {
-  name                      = "earthquake-instance"
+  name                      = "crimes-instance"
   machine_type              = "e2-standard-4"
   zone         = var.zone
   allow_stopping_for_update = true

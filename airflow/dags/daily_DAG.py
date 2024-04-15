@@ -10,7 +10,7 @@ import os
 
 GCP_PROJECT_ID = os.environ.get('GCP_PROJECT_ID')
 GCP_GCS_BUCKET = os.environ.get('GCP_GCS_BUCKET')
-BQ_DATASET_PROD = os.environ.get('BIGQUERY_DATASET', 'earthquake_prod')
+BQ_DATASET_PROD = os.environ.get('BIGQUERY_DATASET', 'crimes_prod')
 
 SERVICE_ACCOUNT_JSON_PATH = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 
@@ -18,29 +18,8 @@ EXECUTION_MONTH = '{{ logical_date.strftime("%-m") }}'
 EXECUTION_DAY = '{{ logical_date.strftime("%-d") }}'
 EXECUTION_HOUR = '{{ logical_date.strftime("%-H") }}'
 EXECUTION_DATETIME_STR = '{{ logical_date.strftime("%m%d%H") }}'
-
-current_date = datetime.now()
-currentSecond = current_date.second
-currentMinute = current_date.minute
-currentHour = current_date.hour
-currentDay = current_date.day
-currentMonth = current_date.month
-currentYear = current_date.year
-
-past_date = datetime.now() - timedelta(hours=1)
-pastSecond = past_date.second
-pastMinute = past_date.minute
-pastHour = past_date.hour
-pastDay = past_date.day
-pastMonth = past_date.month
-pastYear = past_date.year
-
-starttime = f"{pastYear}-{pastMonth:02}-{pastDay:02}T{pastHour:02}:{pastMinute:02}:{pastSecond:02}"
-endtime = f"{currentYear}-{currentMonth:02}-{currentDay:02}T{currentHour:02}:{currentMinute:02}:{currentSecond:02}"
-timestamp = str(datetime.now()).replace(
-    "-", "").replace(":", "").replace(" ", "")[:14]
-file_name = f'data_{starttime.replace("-","").replace(":","")}_{endtime.replace("-","").replace(":","")}_{timestamp}'
-dataset_url = f"https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime={starttime}&endtime={endtime}"
+file_name = "historical_data"
+dataset_url = f"https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD"
 local_file_path = f"/opt/airflow/data/{file_name}.csv.gz"
 
 
@@ -50,7 +29,7 @@ def extract_data_to_local(url, file_name, **kwargs):
     print(df.head())
 
     df.to_csv(local_file_path, index=False, compression="gzip")
-
+    file_name = "historical_data"
     kwargs['ti'].xcom_push(key="general", value={"local_file_path": local_file_path,
                                                  "file_name": file_name})
                                                  
@@ -60,7 +39,7 @@ def upload_to_bucket(**kwargs):
     dict_data = kwargs['ti'].xcom_pull(key="general",task_ids="extract_data_to_local_task")
 
     local_file_path = dict_data['local_file_path']
-    blob_name = f"earthquakes/{dict_data['file_name']}.csv.gz"
+    blob_name = f"crimes/{dict_data['file_name']}.csv.gz"
 
     """ Upload data to a bucket"""
     storage_client = storage.Client.from_service_account_json(
