@@ -108,20 +108,20 @@ The dashboard will have three parts with control filters on time and area that d
     * Crimes trending with times
     * Crimes counts per area
     * Comparison victims by gender
-    ![image](https://user-images.githubusercontent.com/98602171/235377306-51f21e4b-d37d-48fc-a4a8-a1d51ed91c64.png)
+    ![Screenshot 2024-04-15 101427](https://github.com/mzfuadi97/crimes-LA-dezoomcamp/assets/70827786/927ed6ea-8014-4096-badc-6cf19d7a72c4)
+
 
 * Spatial data analytics:
     * Area map with crimes geolocation
     * Heat area map that shows the crimes  (intense)
-    ![image](https://user-images.githubusercontent.com/98602171/235377334-bf23efb2-4ce8-4296-86cf-50e4b222f063.png)
+   
 
 * Last 24 hours analytics:
     * Crimes trending with times
     * Crimes counts per city
 
-    ![image](https://user-images.githubusercontent.com/98602171/235377357-4325c04d-b3a5-44e5-b8c1-ef878eb4278f.png)
 
-You can check the live dashboard [**here**](https://lookerstudio.google.com/reporting/dedce778-8abd-492c-9bce-97b199d5fdfa). (the last 24 hours part of dashboard may not have data if the pipeline is not running live so please choose and filter on one date from historical)
+You can check the live dashboard [**here**](https://lookerstudio.google.com/reporting/929c6e49-b59c-4f30-9bad-f551eba99cbb). (the last 24 hours part of dashboard may not have data if the pipeline is not running live so please choose and filter on one date from historical)
 
 ## Setup
 1. Setup your google cloud project and service account [step1](setup/gcp_account.md)
