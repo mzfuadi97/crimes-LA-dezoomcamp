@@ -1,22 +1,19 @@
 # Data Engineering | Zoomcamp Course Project
-
-![image](https://user-images.githubusercontent.com/98602171/235377169-8e02e9a5-1cfd-4812-9607-e2bf842867c4.png)
-
+![Screenshot 2024-04-15 080947](https://github.com/mzfuadi97/crimes-LA-dezoomcamp/assets/70827786/beb4e7f2-3f60-471e-9fdc-fa2f46aeb04b)
 
 ### Overview
 
-The Los Angeles Police Department (LAPD) is transitioning to a new Records Management System (RMS) to comply with the FBI's National Incident-Based Reporting System (NIBRS) mandate. This transition aims to improve reporting efficiency and accuracy. However, challenges such as data inaccuracies and technical issues have arisen, impacting data updates and reliability.
+The Los Angeles Police Department (LAPD) is transitioning to a new Records Management System (RMS) to comply with the FBI's National Incident-Based Reporting System (NIBRS) mandate. This transition aims to improve reporting efficiency and accuracy. However, challenges such as data inaccuracies and technical issues have arisen, impacting data updates and reliability.\
+
+you can access the dataset : [https://catalog.data.gov/dataset/crime-data-from-2020-to-present]
 
 ### Problem Statement:
 The LAPD's adoption of a new RMS faces several challenges:
 
-Data Transition: Migrating historical crime data to the new system may introduce inaccuracies, affecting dataset reliability.
-
-Technical Issues: The LAPD is experiencing delays in posting crime data due to technical issues, hampering timely updates.
-
-Data Accuracy: Inherent inaccuracies in transcribing paper-based crime reports may compromise data reliability.
-
-Public Trust: Timely resolution of technical issues and ensuring data accuracy are vital for maintaining public trust in the LAPD's transparency and accountability.
+- Data Transition: Migrating historical crime data to the new system may introduce inaccuracies, affecting dataset reliability.
+- Technical Issues: The LAPD is experiencing delays in posting crime data due to technical issues, hampering timely updates.
+- Data Accuracy: Inherent inaccuracies in transcribing paper-based crime reports may compromise data reliability.
+- Public Trust: Timely resolution of technical issues and ensuring data accuracy are vital for maintaining public trust in the LAPD's transparency and accountability.
 
 Addressing these challenges requires resolving technical issues, enhancing data accuracy, and prioritizing transparency to bolster public trust.
 
@@ -39,7 +36,8 @@ The dashboard will have three parts with control filters on time and area that d
 To accelerate queries and data processing, the final table "full_data" has been partitioned by date of crimes (column 'time') as this column is one of the filter control in the dashboard also one of the dashboard's sections considers taking the latest date partition only (where the date is equal today) and the table is clustered by geodata (column 'area') which is a filter control in the dashboard too.
 The original column 'time' type is transformed from string to date type in order to be able to partition by time in spark transformation steps.
 
-![image](https://user-images.githubusercontent.com/98602171/235377176-1eeff0b9-18f7-4e1b-b688-b878fb87b92f.png)
+
+
 
 ### Data schema
 
@@ -80,9 +78,9 @@ The original column 'time' type is transformed from string to date type in order
 ## Data Pipeline 
 
 * **Full pipeline**
-   ![image](https://user-images.githubusercontent.com/98602171/235487296-0b2d9eb4-89ec-405a-81c2-3bfca8c315db.png)
+   ![Infrasructure Arch](https://github.com/mzfuadi97/crimes-LA-dezoomcamp/assets/70827786/5c5e7d42-31a7-4c1e-87f9-b1b13b3b984d)
 
-* **Hourly_DAG**
+* **Daily_DAG**
    ![image](https://user-images.githubusercontent.com/98602171/235377455-f82b774d-c4fe-425a-b813-aa3c6b18f697.png)
 
 * **Historical_DAG**
@@ -110,20 +108,20 @@ The dashboard will have three parts with control filters on time and area that d
     * Crimes trending with times
     * Crimes counts per area
     * Comparison victims by gender
-    ![image](https://user-images.githubusercontent.com/98602171/235377306-51f21e4b-d37d-48fc-a4a8-a1d51ed91c64.png)
+    ![Screenshot 2024-04-15 101427](https://github.com/mzfuadi97/crimes-LA-dezoomcamp/assets/70827786/927ed6ea-8014-4096-badc-6cf19d7a72c4)
+
 
 * Spatial data analytics:
     * Area map with crimes geolocation
     * Heat area map that shows the crimes  (intense)
-    ![image](https://user-images.githubusercontent.com/98602171/235377334-bf23efb2-4ce8-4296-86cf-50e4b222f063.png)
+   
 
 * Last 24 hours analytics:
     * Crimes trending with times
     * Crimes counts per city
 
-    ![image](https://user-images.githubusercontent.com/98602171/235377357-4325c04d-b3a5-44e5-b8c1-ef878eb4278f.png)
 
-You can check the live dashboard [**here**](https://lookerstudio.google.com/reporting/dedce778-8abd-492c-9bce-97b199d5fdfa). (the last 24 hours part of dashboard may not have data if the pipeline is not running live so please choose and filter on one date from historical)
+You can check the live dashboard [**here**](https://lookerstudio.google.com/reporting/929c6e49-b59c-4f30-9bad-f551eba99cbb). (the last 24 hours part of dashboard may not have data if the pipeline is not running live so please choose and filter on one date from historical)
 
 ## Setup
 1. Setup your google cloud project and service account [step1](setup/gcp_account.md)
